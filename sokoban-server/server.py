@@ -9,7 +9,7 @@
 # 2. Send board
 # 3. Receive solution
 # 4. Send response to solution
-# OBS: Every line sent to the client has to end with a newline
+# OBS: Every line sent to the server has to end with a newline
 # (Because "ReadLine" is used in the C++ client)
 import socket
 
@@ -18,15 +18,12 @@ def send_board(filename, client):
     """
     Opens a file containing a Sokoban level (board)
     and sends it to the connected client
-    """	
-    try:
-        f = open('boards/' + board, 'r')
-        for line in f:
-            print line,
-            client.send(line)
-        f.close()
-    except IOError:
-        client.send("\n")
+    """
+    f = open('boards/' + board, 'r')
+    for line in f:
+        print line,
+        client.send(line)
+    f.close()
 
 host = "localhost"
 port = 5555
@@ -53,3 +50,6 @@ while True:
     except KeyboardInterrupt:
         # Close the socket
         s.close()
+        print "\nExiting!\n"
+        break
+        
