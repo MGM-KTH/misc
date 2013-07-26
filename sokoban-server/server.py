@@ -9,7 +9,7 @@
 # 2. Send board
 # 3. Receive solution
 # 4. Send response to solution
-# OBS: Every line sent to the server has to end with a newline
+# OBS: Every line sent to the client has to end with a newline
 # (Because "ReadLine" is used in the C++ client)
 import socket
 
