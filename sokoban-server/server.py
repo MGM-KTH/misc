@@ -21,7 +21,7 @@ def send_board(filename, client):
     """
     f = open('boards/' + board, 'r')
     for line in f:
-        print(line)
+        print line,
         client.send(line)
     f.close()
 
