@@ -18,12 +18,15 @@ def send_board(filename, client):
     """
     Opens a file containing a Sokoban level (board)
     and sends it to the connected client
-    """
-    f = open('boards/' + board, 'r')
-    for line in f:
-        print line,
-        client.send(line)
-    f.close()
+    """	
+    try:
+        f = open('boards/' + board, 'r')
+        for line in f:
+            print(line)
+            client.send(line)
+        f.close()
+    except IOError:
+        client.send("\n")
 
 host = "localhost"
 port = 5555
